@@ -8,10 +8,21 @@
         <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
       <% end %>
     </aside>
+    
     <div class="col-xs-8">
       <%= render 'microposts/microposts', microposts: @microposts %>
+      <!--お気に入り機能?-->
+　    <%# if Favorite.find_by(user_id: @current_user.id, micropost_id: @micropost.id) %>
+      <!--お気に入り済み-->
+      <%# else %>
+      <%# link_to("お気に入り","/favorites/#{@micropost.id}/create",{method:"micropost"}) %>
+      <%# end %>
+      <!--お気に入り機能?ここまで-->
     </div>
+
+
   </div>
+  
 <% else %>
 
   <div class="center jumbotron">

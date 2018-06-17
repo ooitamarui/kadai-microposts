@@ -12,6 +12,15 @@
           <p><%= micropost.content %></p>
         </div>
         <div>
+        <!--お気に入り機能?-->
+　      <%# if Favorite.find_by(user_id: @current_user.id, micropost_id: @micropost.id) %>
+ 
+        <%= render 'favorites/favorite_button', micropost: micropost %>
+        <%#= link_to("お気に入り","/favorites/#{micropost.id}/create",{method:"micropost"}) %>
+
+        <!--お気に入り機能?ここまで-->
+        </div>
+        <div>
           <% if current_user == micropost.user %>
             <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>
           <% end %>

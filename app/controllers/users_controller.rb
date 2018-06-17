@@ -39,9 +39,19 @@ class UsersController < ApplicationController
     counts(@user)
   end
 
+
+  #likes一覧表示用  
+  def likes
+    @likes = current_user.favorite_posts.page(params[:page])
+  end
+  
+
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
+  
+
+  
 end
